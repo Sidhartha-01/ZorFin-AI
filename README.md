@@ -577,42 +577,9 @@ refactor: Reorganize state management
 
 ---
 
-## 🔮 Future Enhancements
-
-### Short Term
-- [ ] Real backend API integration
-- [ ] User authentication (Firebase/Auth0)
-- [ ] Export transaction data (CSV/PDF)
-- [ ] Budget setting and tracking
-- [ ] Monthly financial reports
-
-### Medium Term
-- [ ] Bank account integration
-- [ ] Recurring transactions
-- [ ] Receipt image upload
-- [ ] Mobile app (React Native)
-- [ ] Push notifications
-
-### Long Term
-- [ ] Gemini API integration
-- [ ] Predictive spending analysis
-- [ ] Investment portfolio tracking
-- [ ] Multi-currency support
-- [ ] Real-time market data
-- [ ] Advanced analytics dashboard
-- [ ] Machine learning models
-
----
-
-## 📄 License
-
-This project is part of the Zorvyn Assignment. All rights reserved.
-
----
-
 ## 👨‍💻 Author
 
-**Sidhartha**
+**A S Sidhartha**
 - GitHub: [@Sidhartha-01](https://github.com/Sidhartha-01)
 - Project: ZorFin AI Financial Dashboard
 
