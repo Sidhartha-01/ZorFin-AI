@@ -9,6 +9,7 @@ import DashboardLayout from '../layouts/DashboardLayout';
 
 const OverviewPage = lazy(() => import('../pages/OverviewPage'));
 const TransactionsPage = lazy(() => import('../pages/TransactionsPage'));
+const AIPage = lazy(() => import('../pages/AIPage'));
 
 const AppRouter: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const AppRouter: React.FC = () => {
           <Route path="/" element={<DashboardLayout />}>
             <Route index element={<OverviewPage />} />
             <Route path="transactions" element={<TransactionsPage />} />
+            <Route path="ai" element={<AIPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>

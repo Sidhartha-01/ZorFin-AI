@@ -1,0 +1,72 @@
+@use '../styles/variables' as *;
+
+.stat-card {
+  padding: 1rem;
+  background: $surface-dark;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  transition: $transition-base;
+
+  @media (min-width: 640px) {
+    padding: 1.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 1.5rem;
+  }
+
+  &:hover {
+    border-color: $primary-color;
+    box-shadow: 0 0 20px rgba($primary-color, 0.1);
+  }
+
+  .stat-title {
+    color: $text-secondary;
+    font-size: 0.75rem !important;
+
+    @media (min-width: 640px) {
+      font-size: 0.875rem !important;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 0.95rem !important;
+    }
+  }
+
+  .stat-value {
+    font-weight: 700;
+    font-size: 1.25rem !important;
+
+    @media (min-width: 640px) {
+      font-size: 1.5rem !important;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 1.75rem !important;
+    }
+  }
+
+  :global(.ant-statistic-content) {
+    font-size: 1.25rem;
+
+    @media (min-width: 640px) {
+      font-size: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 1.75rem;
+    }
+  }
+
+  :global(.ant-statistic-title) {
+    font-size: 0.75rem;
+
+    @media (min-width: 640px) {
+      font-size: 0.875rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 0.95rem;
+    }
+  }
+}

@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
-import { Table, Tag, Space, Typography, Input, Button, Modal, message } from 'antd';
-import { 
-  SearchOutlined, 
-  PlusOutlined, 
-  EditOutlined, 
+import {
+  Table,
+  Tag,
+  Space,
+  Typography,
+  Input,
+  Button,
+  Modal,
+  message,
+} from 'antd';
+import {
+  SearchOutlined,
+  PlusOutlined,
+  EditOutlined,
   DeleteOutlined,
   CheckCircleOutlined,
-  ArrowDownOutlined
+  ArrowDownOutlined,
 } from '@ant-design/icons';
 import { useFinanceStore } from '../store/useFinanceStore';
 import { useUserStore } from '../store/useUserStore';
@@ -20,15 +29,26 @@ import './TransactionsPage.scss';
 const { Title, Text } = Typography;
 
 const TransactionsPage: React.FC = () => {
-  const { data, addTransaction, updateTransaction, deleteTransaction } = useFinanceStore();
+  const { data, addTransaction, updateTransaction, deleteTransaction } =
+    useFinanceStore();
   const { role } = useUserStore();
   const [searchText, setSearchText] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [editingTransaction, setEditingTransaction] = useState<Transaction | null>(null);
+  const [editingTransaction, setEditingTransaction] =
+    useState<Transaction | null>(null);
 
   const isAdmin = role === 'Admin';
 
-  const categories = ['Salary', 'Food', 'SaaS', 'Transport', 'Utilities', 'Entertainment', 'Health', 'Other'];
+  const categories = [
+    'Salary',
+    'Food',
+    'SaaS',
+    'Transport',
+    'Utilities',
+    'Entertainment',
+    'Health',
+    'Other',
+  ];
 
   const handleAdd = () => {
     setEditingTransaction(null);
@@ -78,7 +98,8 @@ const TransactionsPage: React.FC = () => {
       title: 'Date',
       dataIndex: 'date',
       key: 'date',
-      sorter: (a: Transaction, b: Transaction) => dayjs(a.date).unix() - dayjs(b.date).unix(),
+      sorter: (a: Transaction, b: Transaction) =>
+        dayjs(a.date).unix() - dayjs(b.date).unix(),
     },
     {
       title: 'Description',
@@ -91,7 +112,7 @@ const TransactionsPage: React.FC = () => {
       dataIndex: 'category',
       key: 'category',
       render: (category: string) => <Tag color="blue">{category}</Tag>,
-      filters: categories.map(c => ({ text: c, value: c })),
+      filters: categories.map((c) => ({ text: c, value: c })),
       onFilter: (value: any, record: Transaction) => record.category === value,
     },
     {
@@ -125,16 +146,16 @@ const TransactionsPage: React.FC = () => {
       key: 'actions',
       render: (_: any, record: Transaction) => (
         <Space size="middle">
-          <Button 
-            type="text" 
-            icon={<EditOutlined />} 
+          <Button
+            type="text"
+            icon={<EditOutlined />}
             disabled={!isAdmin}
             onClick={() => handleEdit(record)}
           />
-          <Button 
-            type="text" 
-            danger 
-            icon={<DeleteOutlined />} 
+          <Button
+            type="text"
+            danger
+            icon={<DeleteOutlined />}
             disabled={!isAdmin}
             onClick={() => handleDelete(record.id)}
           />
@@ -143,22 +164,27 @@ const TransactionsPage: React.FC = () => {
     },
   ];
 
-  const filteredData = data.transactions.filter(t => 
-    t.description.toLowerCase().includes(searchText.toLowerCase()) ||
-    t.category.toLowerCase().includes(searchText.toLowerCase())
+  const filteredData = data.transactions.filter(
+    (t) =>
+      t.description.toLowerCase().includes(searchText.toLowerCase()) ||
+      t.category.toLowerCase().includes(searchText.toLowerCase()),
   );
 
   return (
     <div className="transactions-page">
       <div className="transactions-header">
         <div>
-          <Title level={2} className="zorfin-gradient-text header-title">Transaction Ledger</Title>
-          <Text className="header-subtitle">Manage and track all your financial movements.</Text>
+          <Title level={2} className="zorfin-gradient-text header-title">
+            Transaction Ledger
+          </Title>
+          <Text className="header-subtitle">
+            Manage and track all your financial movements.
+          </Text>
         </div>
-        <Button 
-          type="primary" 
-          icon={<PlusOutlined />} 
-          className="zorfin-btn-primary"
+        <Button
+          type="primary"
+          icon={<PlusOutlined />}
+          className="zorfin-btn-primary add-btn"
           onClick={handleAdd}
           disabled={!isAdmin}
         >
@@ -175,14 +201,17 @@ const TransactionsPage: React.FC = () => {
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
-          <Text className="results-count">{filteredData.length} Transactions found</Text>
+          <Text className="results-count">
+            {filteredData.length} Transactions found
+          </Text>
         </div>
 
-        <Table 
-          columns={columns} 
-          dataSource={filteredData} 
+        <Table
+          columns={columns}
+          dataSource={filteredData}
           rowKey="id"
           pagination={{ pageSize: 4 }}
+          scroll={{ x: 400 }}
           className="zorfin-table"
         />
       </div>

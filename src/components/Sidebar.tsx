@@ -4,6 +4,7 @@ import {
   DashboardOutlined,
   TransactionOutlined,
   WalletOutlined,
+  BulbOutlined,
 } from '@ant-design/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -30,6 +31,11 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
       key: '/transactions',
       icon: <TransactionOutlined />,
       label: 'Transactions',
+    },
+    {
+      key: '/ai',
+      icon: <BulbOutlined />,
+      label: 'AI Assistant',
     },
   ];
 

@@ -1,5 +1,14 @@
 import React from 'react';
-import { Modal, Form, Input, Row, Col, InputNumber, Select, DatePicker } from 'antd';
+import {
+  Modal,
+  Form,
+  Input,
+  Row,
+  Col,
+  InputNumber,
+  Select,
+  DatePicker,
+} from 'antd';
 import dayjs from 'dayjs';
 import type { Transaction } from '../types';
 
@@ -47,18 +56,32 @@ const TransactionModal: React.FC<TransactionModalProps> = ({
       onCancel={onCancel}
       okText={editingTransaction ? 'Update' : 'Add'}
       destroyOnClose
+      width={window.innerWidth < 768 ? '95vw' : 500}
+      style={{ maxWidth: '95vw' }}
     >
-      <Form form={form} layout="vertical" initialValues={{ status: 'expense', date: dayjs() }}>
-        <Form.Item name="description" label="Description" rules={[{ required: true, message: 'Please enter description' }]}>
+      <Form
+        form={form}
+        layout="vertical"
+        initialValues={{ status: 'expense', date: dayjs() }}
+      >
+        <Form.Item
+          name="description"
+          label="Description"
+          rules={[{ required: true, message: 'Please enter description' }]}
+        >
           <Input placeholder="e.g. Monthly Rent" />
         </Form.Item>
-        <Row gutter={16}>
-          <Col span={12}>
-            <Form.Item name="amount" label="Amount" rules={[{ required: true, message: 'Please enter amount' }]}>
+        <Row gutter={[16, 0]}>
+          <Col xs={24} sm={12}>
+            <Form.Item
+              name="amount"
+              label="Amount"
+              rules={[{ required: true, message: 'Please enter amount' }]}
+            >
               <InputNumber className="w-full" min={0} placeholder="0" />
             </Form.Item>
           </Col>
-          <Col span={12}>
+          <Col xs={24} sm={12}>
             <Form.Item name="status" label="Type" rules={[{ required: true }]}>
               <Select
                 options={[
@@ -69,16 +92,20 @@ const TransactionModal: React.FC<TransactionModalProps> = ({
             </Form.Item>
           </Col>
         </Row>
-        <Row gutter={16}>
-          <Col span={12}>
-            <Form.Item name="category" label="Category" rules={[{ required: true }]}>
+        <Row gutter={[16, 0]}>
+          <Col xs={24} sm={12}>
+            <Form.Item
+              name="category"
+              label="Category"
+              rules={[{ required: true }]}
+            >
               <Select
                 placeholder="Select category"
-                options={categories.map(c => ({ value: c, label: c }))}
+                options={categories.map((c) => ({ value: c, label: c }))}
               />
             </Form.Item>
           </Col>
-          <Col span={12}>
+          <Col xs={24} sm={12}>
             <Form.Item name="date" label="Date" rules={[{ required: true }]}>
               <DatePicker className="w-full" />
             </Form.Item>
