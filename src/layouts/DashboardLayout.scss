@@ -1,0 +1,12 @@
+@use '../styles/variables' as *;
+
+.dashboard-layout {
+  min-height: 100vh;
+  background-color: $background-dark;
+
+  .zorfin-content {
+    margin: 1.5rem;
+    min-height: 280px;
+    overflow: auto;
+  }
+}

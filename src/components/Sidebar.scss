@@ -1,0 +1,33 @@
+@use '../styles/variables' as *;
+
+.zorfin-sider {
+  border-right: 1px solid $border-color;
+  background-color: $surface-dark !important;
+
+  .logo-container {
+    display: flex;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid $border-color;
+    padding: 0 1rem;
+
+    .logo-icon {
+      display: flex;
+      height: 2rem;
+      width: 2rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      background-color: $primary-color;
+      color: white;
+      box-shadow: 0 0 15px rgba($primary-color, 0.4);
+    }
+  }
+
+  .side-menu {
+    margin-top: 1rem;
+    border: none;
+    background: transparent !important;
+  }
+}

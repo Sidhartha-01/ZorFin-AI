@@ -1,0 +1,43 @@
+@use '../styles/variables' as *;
+
+.zorfin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: $surface-dark !important;
+  border-bottom: 1px solid $border-color;
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .user-profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    
+    .user-info {
+      display: none;
+      flex-direction: column;
+      margin-left: 0.5rem;
+      line-height: 1;
+
+      @media (min-width: 640px) {
+        display: flex;
+      }
+
+      .user-name {
+        font-weight: 600;
+        color: $text-primary;
+      }
+
+      .user-role {
+        font-size: 0.75rem;
+        color: $text-secondary;
+      }
+    }
+  }
+}
