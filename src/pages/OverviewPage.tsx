@@ -1,4 +1,4 @@
-import React, { lazy, useState } from 'react';
+import React, { useState } from 'react';
 import { Typography, List, Tag, Space, Button, Empty } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import {
