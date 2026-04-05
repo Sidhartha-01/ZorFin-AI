@@ -9,38 +9,6 @@ interface FinanceStore {
   deleteTransaction: (id: string) => void;
 }
 
-export const useFinanceStore = create<FinanceStore>((set) => ({
-  data: calculateFinanceData(mockTransactions),
-
-  setTransactions: (transactions) => {
-    set({ data: calculateFinanceData(transactions) });
-  },
-
-  addTransaction: (transaction) => {
-    set((state) => ({
-      data: calculateFinanceData([...state.data.transactions, transaction]),
-    }));
-  },
-
-  updateTransaction: (id, updated) => {
-    set((state) => ({
-      data: calculateFinanceData(
-        state.data.transactions.map((t) =>
-          t.id === id ? { ...t, ...updated } : t,
-        ),
-      ),
-    }));
-  },
-
-  deleteTransaction: (id) => {
-    set((state) => ({
-      data: calculateFinanceData(
-        state.data.transactions.filter((t) => t.id !== id),
-      ),
-    }));
-  },
-}));
-
 const mockTransactions: Transaction[] = [
   {
     id: '1',
@@ -132,3 +100,35 @@ const calculateFinanceData = (transactions: Transaction[]): FinanceData => {
     categorySpending,
   };
 };
+
+export const useFinanceStore = create<FinanceStore>((set) => ({
+  data: calculateFinanceData(mockTransactions),
+
+  setTransactions: (transactions) => {
+    set({ data: calculateFinanceData(transactions) });
+  },
+
+  addTransaction: (transaction) => {
+    set((state) => ({
+      data: calculateFinanceData([...state.data.transactions, transaction]),
+    }));
+  },
+
+  updateTransaction: (id, updated) => {
+    set((state) => ({
+      data: calculateFinanceData(
+        state.data.transactions.map((t) =>
+          t.id === id ? { ...t, ...updated } : t,
+        ),
+      ),
+    }));
+  },
+
+  deleteTransaction: (id) => {
+    set((state) => ({
+      data: calculateFinanceData(
+        state.data.transactions.filter((t) => t.id !== id),
+      ),
+    }));
+  },
+}));
