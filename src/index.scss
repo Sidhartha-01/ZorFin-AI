@@ -1,0 +1,18 @@
+@use './styles/main.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-sans: 'Sora', ui-sans-serif, system-ui, sans-serif;
+  --color-zorvyn-bg: #0b0f17;
+  --color-zorvyn-surface: #161b22;
+  --color-zorvyn-primary: #3b82f6;
+}
+
+body {
+  background-color: var(--color-zorvyn-bg);
+  color: #e2e8f0; // slate-200
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
