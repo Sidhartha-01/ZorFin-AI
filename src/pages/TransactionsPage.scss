@@ -1,0 +1,75 @@
+@use '../styles/variables' as *;
+
+.transactions-page {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .transactions-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    .header-title {
+      margin: 0;
+      color: $text-primary;
+    }
+
+    .header-subtitle {
+      color: $text-secondary;
+    }
+  }
+
+  .ledger-card {
+    background: $surface-dark;
+    border: 1px solid $border-color;
+    border-radius: $border-radius-lg;
+    padding: 1.5rem;
+    transition: $transition-base;
+
+    &:hover {
+      border-color: $primary-color;
+      box-shadow: 0 0 20px rgba($primary-color, 0.1);
+    }
+
+    .ledger-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+
+      .search-input {
+        max-width: 28rem;
+        background-color: $background-dark;
+        border: none;
+        color: $text-primary;
+
+        &:hover,
+        &:focus {
+          border-color: $primary-color;
+        }
+      }
+
+      .results-count {
+        color: $text-secondary;
+      }
+    }
+
+    .zorfin-table {
+      .ant-table-thead > tr > th {
+        background: rgba($primary-color, 0.05) !important;
+        color: $text-secondary !important;
+        border-bottom: 1px solid $border-color !important;
+      }
+    }
+  }
+
+  .amount-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+  }
+}
