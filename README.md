@@ -2,7 +2,7 @@
 
 A modern, AI-powered financial management application built with React, TypeScript, and Vite. ZorFin AI provides comprehensive financial tracking, analysis, and intelligent insights powered by advanced AI capabilities.
 
-![ZorFin AI Dashboard](./public/zorvynlogolight.png)
+![ZorFin AI Dashboard]
 
 ---
 
